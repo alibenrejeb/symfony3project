@@ -1,15 +1,9 @@
-# OCPlatform
-Code source de la plateforme d'annonce construite grâce au [MOOC OpenClassrooms](https://openclassrooms.com/courses/developpez-votre-site-web-avec-le-framework-symfony2).
-### [Ce cours Symfony est également disponible en livre](http://www.eyrolles.com/Informatique/Livre/developpez-votre-site-web-avec-le-framework-symfony2-9791090085428) [et en ebook](https://openclassrooms.com/ebooks/developpez-votre-site-web-avec-le-framework-symfony2)
-
 # Installation
 ## 1. Récupérer le code
 Vous avez deux solutions pour le faire :
 
 1. Via Git, en clonant ce dépôt ;
-2. Via le téléchargement du code source en une archive ZIP, à cette adresse : https://github.com/winzou/mooc-symfony/archive/master.zip
-
-*Attention, le code est divisé en plusieurs branches `iteration-XX`. Sur la branche `master` vous n'avez que le tout début du cours, n'hésitez pas à [changer de branche](https://github.com/winzou/mooc-symfony/branches) !*
+2. Via le téléchargement du code source en une archive ZIP, à cette adresse : https://github.com/alibenrejeb/symfony3project/archive/master.zip
 
 ## 2. Définir vos paramètres d'application
 Pour ne pas qu'on se partage tous nos mots de passe, le fichier `app/config/parameters.yml` est ignoré dans ce dépôt. A la place, vous avez le fichier `parameters.yml.dist` que vous devez renommer (enlevez le `.dist`) et modifier.
@@ -37,5 +31,11 @@ Enfin, éventuellement, ajoutez les fixtures :
 Publiez les assets dans le répertoire web :
 
     php bin/console assets:install web
+
+## Lien utils
+
+[Symfony2 authentification perso](https://openclassrooms.com/forum/sujet/symfony2-authentification-perso-avec-service-web)
+
+[authentification provider](https://blog.vandenbrand.org/2012/06/19/symfony2-authentication-provider-authenticate-against-webservice/)
 
 ## Et profitez !
