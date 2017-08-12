@@ -26,4 +26,9 @@ class OCAntispam
   {
     return strlen($text) < $this->minLength;
   }
+
+  public function setLocale($locale)
+  {
+      $this->locale = $locale;
+  }
 }

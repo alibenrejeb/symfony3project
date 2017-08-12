@@ -4,7 +4,7 @@
 
 {% block body %}
 
-  <h2>Ajouter une annonce</h2>
+  <h2>Ajouter une annonce {{ checkIfSpam("test") }}</h2>
 
   {{ include("OCPlatformBundle:Advert:form.html.twig") }}
 
