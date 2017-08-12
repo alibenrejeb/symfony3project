@@ -4,8 +4,9 @@ security:
 
 
     encoders:
-        #Symfony\Component\Security\Core\User\User: plaintext
-        OC\UserBundle\Entity\User: plaintext
+        #1Symfony\Component\Security\Core\User\User: plaintext
+        #2OC\UserBundle\Entity\User: plaintext
+        OC\UserBundle\Entity\User: sha512
 
     role_hierarchy:
         ROLE_ADMIN:       [ROLE_AUTEUR, ROLE_MODERATEUR]
@@ -14,9 +15,11 @@ security:
     # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
     providers:
         main:
-            entity:
-                class: OC\UserBundle\Entity\User
-                property: username
+            id: fos_user.user_provider.username
+        #2main:
+        #2    entity:
+        #2        class: OC\UserBundle\Entity\User
+        #2        property: username
         #1in_memory:
         #1    memory:
         #1        users:
@@ -39,11 +42,13 @@ security:
             provider:  main
             #1anonymous: false
             form_login:
-                login_path: login
-                check_path: login_check
+                login_path: fos_user_security_login
+                check_path: fos_user_security_check
             logout:
-                path:       logout
-                target:     login
+                path:       fos_user_security_logout
+                target:     fos_user_security_login
+            remember_me:
+                secret: %secret%
             # activate different ways to authenticate
 
             # http_basic: ~
