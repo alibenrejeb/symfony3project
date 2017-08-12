@@ -9,6 +9,7 @@ parameters:
     locale: en
 
 framework:
+    translator:      { fallbacks: ["%locale%"] }
     #esi:             ~
     #translator:      { fallbacks: ["%locale%"] }
     secret:          "%secret%"
@@ -75,3 +76,11 @@ stof_doctrine_extensions:
     orm:
         default:
             sluggable: true
+
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: OC\UserBundle\Entity\User
+    from_email:
+        address: b.rejeb.ali@gmail.com
+        sender_name: Ali BEN REJEB
