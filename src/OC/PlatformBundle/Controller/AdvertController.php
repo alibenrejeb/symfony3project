@@ -16,6 +16,7 @@ class AdvertController extends Controller
 {
   public function indexAction($page)
   {
+      die(serialize(array("ROLE_USER", "ROLE_AUTEUR")));
     if ($page < 1) {
       throw new NotFoundHttpException('Page "'.$page.'" inexistante.');
     }
