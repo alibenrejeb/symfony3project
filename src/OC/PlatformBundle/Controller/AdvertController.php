@@ -16,14 +16,6 @@ class AdvertController extends Controller
 {
   public function indexAction($page)
   {
-      // Pour récupérer le service UserManager du bundle
-      $userManager = $this->get('fos_user.user_manager');
-
-// Pour charger un utilisateur
-      $user = $userManager->findUserBy(array('username' => 'ali'));
-      $user->setRoles(array("ROLE_USER", "ROLE_AUTEUR"));
-      $userManager->updateUser($user);
-
     if ($page < 1) {
       throw new NotFoundHttpException('Page "'.$page.'" inexistante.');
     }

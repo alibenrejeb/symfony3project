@@ -32,7 +32,7 @@ Publiez les assets dans le répertoire web :
 
     php bin/console assets:install web
 
-# Manipuler les utilisateurs avecFOSUserBundle
+# Manipuler les utilisateurs avec FOSUserBundle
 
 Nous allons voir les moyens pour manipuler vos utilisateurs au quotidien.
 
@@ -58,6 +58,15 @@ Si les utilisateurs sont gérés parFOSUserBundle, ils ne restent que des entit�
 Si vous avez besoin de plus de fonctions, vous pouvez parfaitement faire un repository personnel, et le récupérer comme d'habitude via
     
     $this->getDoctrine()->getManager()->getRepository('OCUserBundle:User')
+## Les tags sur les services
+
+Pour connaître tous les services implémentant un certain tag, vous pouvez exécuter la commande suivante :
+
+    php bin/console debug:container --tag=twig.extension
+
+[la documentation de Twig](https://twig.symfony.com/doc/2.x/advanced.html#creating-an-extension)
+
+[Les principaux tags](https://symfony.com/doc/current/reference/dic_tags.html)
 
 ## Lien utils
 
