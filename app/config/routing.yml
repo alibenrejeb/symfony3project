@@ -9,12 +9,12 @@ oc_core:
     resource: "@OCCoreBundle/Resources/config/routing.yml"
 
 login:
-    path: /login
+    path: /demo/secured/login
     defaults:
         _controller: OCUserBundle:Security:login
 
 login_check:
-    path: /login_check
+    path: /demo/secured/login_check
 
 logout:
-    path: /logout
+    path: /demo/secured/logout
