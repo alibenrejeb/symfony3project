@@ -23,7 +23,10 @@
         "incenteev/composer-parameter-handler": "~2.0",
         "doctrine/doctrine-fixtures-bundle": "~2.2",
         "stof/doctrine-extensions-bundle": "^1.2.2",
-        "friendsofsymfony/user-bundle": "dev-master"
+        "friendsofsymfony/user-bundle": "dev-master",
+        "friendsofsymfony/rest-bundle": "^2.1",
+        "jms/serializer-bundle": "^2.2",
+        "jms/di-extra-bundle": "^1.9"
     },
     "require-dev": {
         "sensio/generator-bundle": "~3.0",
