@@ -13,6 +13,17 @@ oc_platform:
 oc_core:
     resource: "@OCCoreBundle/Resources/config/routing.yml"
 
+places:
+    type: rest
+    resource: AppBundle\Controller\PlaceController
+
+prices:
+    type:     rest
+    resource: AppBundle\Controller\Place\PriceController
+
+users:
+    type: rest
+    resource: AppBundle\Controller\UserController
 #2login:
 #2    path: /login
 #2    defaults:

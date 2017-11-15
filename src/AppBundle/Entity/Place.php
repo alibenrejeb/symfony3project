@@ -1,11 +1,14 @@
 <?php
 namespace AppBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity()
- * @ORM\Table(name="places")
+ * @ORM\Table(name="places",
+ *      uniqueConstraints={@ORM\UniqueConstraint(name="places_name_unique",columns={"name"})}
+ * )
  */
 class Place
 {
@@ -25,6 +28,17 @@ class Place
      * @ORM\Column(type="string")
      */
     protected $address;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Price", mappedBy="place")
+     * @var Price[]
+     */
+    protected $prices;
+
+    public function __construct()
+    {
+        $this->prices = new ArrayCollection();
+    }
 
     /**
      * @return mixed
@@ -74,5 +88,20 @@ class Place
         $this->address = $address;
     }
 
+    /**
+     * @return Price[]
+     */
+    public function getPrices()
+    {
+        return $this->prices;
+    }
+
+    /**
+     * @param Price[] $prices
+     */
+    public function setPrices($prices)
+    {
+        $this->prices = $prices;
+    }
 
 }

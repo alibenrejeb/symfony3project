@@ -80,6 +80,17 @@ stof_doctrine_extensions:
         default:
             sluggable: true
 
+fos_rest:
+    routing_loader:
+        include_format: false
+    view:
+        view_response_listener: true
+    format_listener:
+        rules:
+            - { path: '^/', priorities: ['json'], fallback_format: 'json' }
+    body_listener:
+        enabled: true
+
 fos_user:
     db_driver: orm
     firewall_name: main
