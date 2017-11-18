@@ -55,8 +55,6 @@ class PlaceController extends Controller
         $form = $this->createForm(PlaceType::class, $place);
 
         $form->submit($request->request->all());		// Validation des données
-		
-		print_r($request->request->all());die;
 
         if ($form->isValid()) {
             $em = $this->get('doctrine.orm.entity_manager');

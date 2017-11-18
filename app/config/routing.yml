@@ -32,6 +32,9 @@ preferences:
     type:     rest
     resource: AppBundle\Controller\User\PreferenceController
 
+api_login_check:
+    path: /s-api/login_check
+
 #2login:
 #2    path: /login
 #2    defaults:
