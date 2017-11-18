@@ -35,9 +35,16 @@ class Place
      */
     protected $prices;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Theme", mappedBy="place")
+     * @var Theme[]
+     */
+    protected $themes;
+
     public function __construct()
     {
         $this->prices = new ArrayCollection();
+        $this->themes = new ArrayCollection();
     }
 
     /**
@@ -102,6 +109,16 @@ class Place
     public function setPrices($prices)
     {
         $this->prices = $prices;
+    }
+
+    public function getThemes()
+    {
+        return $this->themes;
+    }
+
+    public function setThemes($themes)
+    {
+        $this->themes = $themes;
     }
 
 }

@@ -1,6 +1,7 @@
 <?php
 namespace AppBundle\Controller;
-
+header("Access-Control-Allow-Origin: *");
+use AppBundle\Entity\Place;
 use AppBundle\Form\Type\UserType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -124,5 +125,44 @@ class UserController extends Controller
         } else {
             return $form;
         }
+    }
+
+    /**
+     * @Rest\View(serializerGroups={"place"})
+     * @Rest\Get("/users/{id}/suggestions")
+     */
+    public function getUserSuggestionsAction(Request $request)
+    {
+        $user = $this->get('doctrine.orm.entity_manager')
+            ->getRepository('AppBundle:User')
+            ->find($request->get('id'));
+        /* @var $user User */
+
+        if (empty($user)) {
+            return $this->userNotFound();
+        }
+
+        $suggestions = [];
+
+        $places = $this->get('doctrine.orm.entity_manager')
+            ->getRepository('AppBundle:Place')
+            ->findAll();
+
+        /**
+         * @var $places Place[]
+         */
+
+        foreach ($places as $place) {
+            if ($user->preferencesMatch($place->getThemes())) {
+                $suggestions[] = $place;
+            }
+        }
+
+        return $suggestions;
+    }
+
+    private function userNotFound()
+    {
+        return \FOS\RestBundle\View\View::create(['message' => 'User not found'], Response::HTTP_NOT_FOUND);
     }
 }

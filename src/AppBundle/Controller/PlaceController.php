@@ -1,6 +1,5 @@
 <?php
 namespace AppBundle\Controller;
-
 use AppBundle\Form\Type\PlaceType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -16,7 +15,7 @@ class PlaceController extends Controller
 
     /**
      * @Rest\View(serializerGroups={"place"})
-     * @Rest\Get("/places")
+     * @Rest\Get("/s-api/places")
      */
     public function getPlacesAction(Request $request)
     {
@@ -30,7 +29,7 @@ class PlaceController extends Controller
 
     /**
      * @Rest\View(serializerGroups={"place"})
-     * @Rest\Get("/places/{id}")
+     * @Rest\Get("/s-api/places/{id}")
      */
     public function getPlaceAction(Request $request)
     {
@@ -48,14 +47,16 @@ class PlaceController extends Controller
 
     /**
      * @Rest\View(statusCode=Response::HTTP_CREATED, serializerGroups={"place"})
-     * @Rest\Post("/places")
+     * @Rest\Post("/s-api/places")
      */
     public function postPlacesAction(Request $request)
     {
         $place = new Place();
         $form = $this->createForm(PlaceType::class, $place);
 
-        $form->submit($request->request->all()); // Validation des données
+        $form->submit($request->request->all());		// Validation des données
+		
+		print_r($request->request->all());die;
 
         if ($form->isValid()) {
             $em = $this->get('doctrine.orm.entity_manager');
@@ -69,7 +70,7 @@ class PlaceController extends Controller
 
     /**
      * @Rest\View(statusCode=Response::HTTP_NO_CONTENT, serializerGroups={"place"})
-     * @Rest\Delete("/places/{id}")
+     * @Rest\Delete("/s-api/places/{id}")
      */
     public function removePlaceAction(Request $request)
     {
@@ -91,7 +92,7 @@ class PlaceController extends Controller
 
     /**
      * @Rest\View(serializerGroups={"place"})
-     * @Rest\Put("/places/{id}")
+     * @Rest\Put("/s-api/places/{id}")
      */
     public function updatePlaceAction(Request $request)
     {
@@ -100,7 +101,7 @@ class PlaceController extends Controller
 
     /**
      * @Rest\View(serializerGroups={"place"})
-     * @Rest\Patch("/places/{id}")
+     * @Rest\Patch("/s-api/places/{id}")
      */
     public function patchPlaceAction(Request $request)
     {

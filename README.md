@@ -83,4 +83,8 @@ Pour connaître tous les services implémentant un certain tag, vous pouvez exé
 2 - Le rôle IS_AUTHENTICATED_REMEMBEREDest donné à un utilisateur qui s'est authentifié soit automatiquement grâce au cookieremember_me, soit en utilisant le formulaire de connexion. Le rôleIS_AUTHENTICATED_FULLYest donné à un utilisateur qui s'est obligatoirement authentifié manuellement, en rentrant son mot de passe dans le formulaire de connexion. C'est utile pour protéger les opérations sensibles comme le changement de mot de passe ou d'adresse e-mail.
 ## Et profitez !
 
-3 - [api-rest](https://zestedesavoir.com/tutoriels/1280/creez-une-api-rest-avec-symfony-3/)
+3 - A voir !
+
+[api-rest](https://zestedesavoir.com/tutoriels/1280/creez-une-api-rest-avec-symfony-3/)
+
+[NelmioCorsBundle](https://ourcodeworld.com/articles/read/291/how-to-solve-the-client-side-access-control-allow-origin-request-error-with-your-own-symfony-3-api)
